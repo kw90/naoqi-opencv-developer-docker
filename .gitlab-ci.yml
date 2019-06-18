@@ -1,0 +1,15 @@
+stages:
+- push
+
+services:
+- docker:dind
+
+push:
+  image: docker:latest
+  stage: push
+  script:
+    - docker info
+    - docker login -u dbaij-user -p JpjLAhkT94VUjAFi repohub.enterpriselab.ch:5002
+    - docker build -t naoqi-dev:latest .
+    - docker tag naoqi-dev repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
+    - docker push repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
