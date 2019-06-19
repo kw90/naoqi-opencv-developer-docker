@@ -9,9 +9,9 @@ push:
   stage: push
   script:
     - docker info
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD repohub.enterpriselab.ch:5002
+    - docker login --user="$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" repohub.enterpriselab.ch:5002
     - docker build -t naoqi-dev:latest .
     - docker tag naoqi-dev repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
     - docker push repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
-    - docker login --username=$DOCKERHUB_USER --password=$DOCKERHUB_PASSWORD
-    - docker push $DOCKERHUB_USER/naoqi-opencv-developer:latest
+    - docker login --username="$DOCKERHUB_USER" --password="$DOCKERHUB_PASSWORD"
+    - docker push "$DOCKERHUB_USER"/naoqi-opencv-developer:latest
