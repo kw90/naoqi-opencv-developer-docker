@@ -8,10 +8,10 @@ push:
   image: docker:latest
   stage: push
   script:
-    - echo ${CI_REGISTRY_USER}
-    - echo ${CI_REGISTRY_PASSWORD}
+    - echo ${EL_REGISTRY_USER}
+    - echo ${EL_REGISTRY_PASSWORD}
     - docker info
-    - docker login -u "${CI_REGISTRY_USER}" -p "${CI_REGISTRY_PASSWORD}" repohub.enterpriselab.ch:5002
+    - docker login -u "${EL_REGISTRY_USER}" -p "${EL_REGISTRY_PASSWORD}" repohub.enterpriselab.ch:5002
     - docker build -t naoqi-dev:latest .
     - docker tag naoqi-dev repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
     - docker push repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
