@@ -13,3 +13,5 @@ push:
     - docker build -t naoqi-dev:latest .
     - docker tag naoqi-dev repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
     - docker push repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
+    - docker login --username=kw90
+    - docker push kw90/naoqi-opencv-developer:latest
