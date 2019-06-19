@@ -16,4 +16,5 @@ push:
     - docker tag naoqi-dev repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
     - docker push repohub.enterpriselab.ch:5002/kawa/naoqi-dev:latest
     - docker login -u "${DOCKERHUB_USER}" -p "${DOCKERHUB_PASSWORD}"
+    - docker tag naoqi-dev "${DOCKERHUB_USER}"/naoqi-opencv-developer:latest
     - docker push "${DOCKERHUB_USER}"/naoqi-opencv-developer:latest
